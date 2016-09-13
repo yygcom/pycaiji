@@ -82,7 +82,7 @@ def downcmd(imgurl,outdir):
 		pic = urllib2.urlopen(imgurl)
 	except urllib2.URLError,e:
 		#if e.code == '404':
-		print imgurl
+		#print imgurl
 		sys.stdout.write("\b*>")
 	else:
 		with open(filePath, 'wb') as localFile:
@@ -94,8 +94,8 @@ def main(urlstr,b,e):
 	shop = getshopdomain(urlstr)
 	for i in range(b,e+1):
 		url = urlstr % i
-		print ''
-		print url
+		sys.stdout.write( "[%s] " % i )
+		#print url
 		getpids(url,shop)
 
 main('https://shop35467425.taobao.com/search.htm?pageNo=%s',1,4)
